@@ -2,7 +2,7 @@
 #include <Windows.h>
 #include <vector>
 #include <string>
-#include <conoio.h>
+#include <conio.h>
 
 using namespace std;
 void sampleStudents(), searchStudent(), addStudent(), displayStudent(), viewStudents();
@@ -48,6 +48,9 @@ void viewStudents() {
     for (const auto& s : students) {
         cout << "Name: " << s.name << ", ID: " << s.id << endl;
     }
+    cout << "\nPress any key to return to menu...";
+    
+    getch();
 }
 
 void displayStudent(const Student& s) {
@@ -60,6 +63,7 @@ void displayStudent(const Student& s) {
     }
 
     cout << "\nPress any key to return to menu...";
+    
     getch();
 }
 
