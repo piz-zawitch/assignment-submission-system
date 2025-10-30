@@ -1,8 +1,11 @@
 #include <iostream>
+#include <Windows.h>
 #include <vector>
 #include <string>
+#include <conoio.h>
+
 using namespace std;
-void sampleStudents(), searchStudent(), addStudent(), displayStudent();
+void sampleStudents(), searchStudent(), addStudent(), displayStudent(), viewStudents();
 
 struct Student {
     string name;
@@ -18,8 +21,9 @@ int main() {
     int choice;
 
     do {
+        system("cls");
         cout << "\n--- Assignment Submission System ---\n";
-        cout << "1. Search Student\n";
+        cout << "1. Searsch Student\n";
         cout << "2. Add Student\n";
         cout << "3. Students list\n";
         cout << "4. Exit\n";
@@ -29,25 +33,38 @@ int main() {
         switch(choice) {
             case 1: searchStudent(); break;
             case 2: addStudent(); break;
-            case 3: addStudent(); break;
-            case 4: cout << "Exiting...\n"; break;
+            case 3: viewStudents(); break;
+            case 4: cout << "Exiting...\n"; Sleep(10); return 0; break;
             default: cout << "Invalid choice.\n";
         }
-    } while(choice != 3);
+    } while(choice != 4);
 
     return 0;
 }
 
+void viewStudents() {
+    system("cls");
+    cout << "\n--- Students List ---\n";
+    for (const auto& s : students) {
+        cout << "Name: " << s.name << ", ID: " << s.id << endl;
+    }
+}
+
 void displayStudent(const Student& s) {
+    system("cls");
     cout << "\nStudent\n";
     cout << "Name: " << s.name << endl;
     cout << "ID: " << s.id << endl;
     for (int i = 0; i < 5; i++) {
-        cout << "W" << (i+1) << " " << (s.submissions[i] ? "?" : "X") << endl;
+        cout << "W" << (i+1) << " " << (s.submissions[i] ? "Y" : "X") << endl;
     }
+
+    cout << "\nPress any key to return to menu...";
+    getch();
 }
 
 void searchStudent() {
+    system("cls");
     string query;
     cout << "\nEnter student name or ID to search: ";
     cin >> query;
@@ -62,6 +79,7 @@ void searchStudent() {
 }
 
 void addStudent() {
+    system("cls");
     Student s;
     cout << "\nEnter student name: ";
     cin >> s.name;
@@ -80,6 +98,7 @@ void addStudent() {
 }
 
 void sampleStudents() {
+    system("cls");
     Student s1 = {"Louie", "000", {1,1,1,1,1}};
     Student s2 = {"Anna", "001", {1,0,1,1,0}};
     Student s3 = {"Mark", "002", {0,0,1,0,1}};
