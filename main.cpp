@@ -2,11 +2,13 @@
 #include <vector>
 #include <string>
 using namespace std;
+void sampleStudents(), searchStudent(), addStudent(), displayStudent();
 
 struct Student {
     string name;
     string id;
-    bool submissions[5]; // W1 to W5 //w2
+    bool submissions[5]; // W1 to W5 
+    //w2
 };
 
 vector<Student> students;
@@ -27,7 +29,7 @@ int main() {
         switch(choice) {
             case 1: searchStudent(); break;
             case 2: addStudent(); break;
-            case 2: addStudent(); break;
+            case 3: addStudent(); break;
             case 4: cout << "Exiting...\n"; break;
             default: cout << "Invalid choice.\n";
         }
