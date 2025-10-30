@@ -6,7 +6,7 @@ using namespace std;
 struct Student {
     string name;
     string id;
-    bool submissions[5]; // W1 to W5
+    bool submissions[5]; // W1 to W5 //w2
 };
 
 vector<Student> students;
