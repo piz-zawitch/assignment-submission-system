@@ -1,8 +1,8 @@
 #include <iostream>
-#include <Windows.h>
+#include <unistd.h>
 #include <vector>
 #include <string>
-#include <conoio.h>
+#include <conio.h>
 
 using namespace std;
 void sampleStudents(), searchStudent(), addStudent(), displayStudent(), viewStudents();
@@ -34,7 +34,7 @@ int main() {
             case 1: searchStudent(); break;
             case 2: addStudent(); break;
             case 3: viewStudents(); break;
-            case 4: cout << "Exiting...\n"; Sleep(10); return 0; break;
+            case 4: system("cls"); cout << "Exiting...\n"; sleep(2); return 0; break;
             default: cout << "Invalid choice.\n";
         }
     } while(choice != 4);
@@ -48,6 +48,8 @@ void viewStudents() {
     for (const auto& s : students) {
         cout << "Name: " << s.name << ", ID: " << s.id << endl;
     }
+    cout << "\nPress any key to return to menu...";
+    getch();
 }
 
 void displayStudent(const Student& s) {
