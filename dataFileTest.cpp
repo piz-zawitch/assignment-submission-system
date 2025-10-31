@@ -5,12 +5,18 @@ using namespace std;
 
 int main()
 {
-    fstream accountFile("accounts.csv");
+    string line = "", first = "";
+    int location = 0;
 
-    string text;
-    while(0)
-    {
-    getline(accountFile, text);
-    }
-    cout << text;
+    ifstream accountFile;
+    accountFile.open("accounts.csv");
+
+    getline(accountFile, line);
+    getline(accountFile, line);
+
+    cin.ignore();
+    cin.get();
+
+    accountFile.close();
+
 }
