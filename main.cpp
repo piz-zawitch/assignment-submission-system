@@ -1,8 +1,9 @@
 #include <iostream>
-#include <Windows.h>
+#include <unistd.h>
 #include <vector>
 #include <string>
 #include <conio.h>
+#include "dataFileTest.h"
 
 using namespace std;
 void sampleStudents(), searchStudent(), addStudent(), displayStudent(), viewStudents();
@@ -34,7 +35,7 @@ int main() {
             case 1: searchStudent(); break;
             case 2: addStudent(); break;
             case 3: viewStudents(); break;
-            case 4: cout << "Exiting...\n"; Sleep(10); return 0; break;
+            case 4: system("cls"); cout << "Exiting...\n"; sleep(2); return 0; break;
             default: cout << "Invalid choice.\n";
         }
     } while(choice != 4);
@@ -48,9 +49,6 @@ void viewStudents() {
     for (const auto& s : students) {
         cout << "Name: " << s.name << ", ID: " << s.id << endl;
     }
-    cout << "\nPress any key to return to menu...";
-    
-    getch();
 }
 
 void displayStudent(const Student& s) {
@@ -102,10 +100,11 @@ void addStudent() {
 }
 
 void sampleStudents() {
-    system("cls");
-    Student s1 = {"Louie", "000", {1,1,1,1,1}};
-    Student s2 = {"Anna", "001", {1,0,1,1,0}};
-    Student s3 = {"Mark", "002", {0,0,1,0,1}};
+
+    accounts();
+    Student s1 = {first[1], id[1], {w[1][1],w[2][1],w[3][1],w[4][1],w[5][1]}};
+    Student s2 = {first[2], id[2], {w[1][2],w[2][2],w[3][2],w[4][2],w[5][2]}};
+    Student s3 = {first[3], id[3], {w[1][3],w[2][3],w[3][3],w[4][3],w[5][3]}};
     students.push_back(s1);
     students.push_back(s2);
     students.push_back(s3);
